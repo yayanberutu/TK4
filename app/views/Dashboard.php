@@ -34,7 +34,7 @@
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">GoJualan adalah salah satu bisnis commerce yang dapat membantu Anda mewujudkan inpian berbelanja dan berjualan dengan mudah dan dari mana saja</p>
+                        <p class="text-white-75 mb-5">GoJualan adalah salah satu bisnis Commerce yang dapat membantu Anda mewujudkan inpian berbelanja dan berjualan dengan mudah dan dari mana saja</p>
                         <a class="btn btn-primary btn-xl" href="#about">Join With Us</a>
                     </div>
                 </div>
