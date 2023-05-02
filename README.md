@@ -7,4 +7,9 @@ Repository ini merupakan proyek Tugas Kelompok ke-4 pada mata kuliah Intoduction
 - Apache/2.4.57
 
 # Documentation
+## Database Structure
 TBD
+
+## Sequence Diagram
+TBD
+
