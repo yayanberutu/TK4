@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Webpage</title>
+	<title>Dashboard</title>
 </head>
 <body>
-	<h1>Hello, world!</h1>
-    <h2>My Name is Gita</h2>
+    <!--Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+	        <a class="navbar-brand" href="#page.com">GoJualan</a>
+        </div>
+    </nav>
 </body>
 </html>
