@@ -15,7 +15,7 @@
             <!-- SimpleLightbox plugin CSS-->
             <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
             <!-- Core theme CSS (includes Bootstrap)-->
-            <link rel="stylesheet" type="text/css" href="Style.css">
+            <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/css/Style.css">
 </head>
 <body>
 <div class="container">
