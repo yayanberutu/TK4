@@ -1,5 +1,5 @@
 <?php
 
-public class Penjualan(){
+class Penjualan{
     
 }
