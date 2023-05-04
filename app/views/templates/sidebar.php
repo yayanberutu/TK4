@@ -52,6 +52,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?= BASEURL; ?>/barang" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Barang
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Extra</li>
           <li class="nav-item">
             <a href="<?= BASEURL; ?>/About Us" class="nav-link">
