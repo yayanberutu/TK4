@@ -47,7 +47,7 @@
                         <h2 class="text-white mt-0">Lanjutkan untuk explore apps ini!</h2>
                         <hr class="divider divider-light" />
                         <p class="text-white-75 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
-                        <a class="btn btn-light btn-xl" href="Login.php">Login!</a>
+                        <a class="btn btn-light btn-xl" href="<?= BASEURL ?>/login">Login!</a>
                     </div>
                 </div>
             </div>
