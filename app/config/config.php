@@ -12,4 +12,4 @@ define('BASEURL', 'http://localhost:8080/yayanberutu/TK4/public');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'db_tokoku');
+define('DB_NAME', 'db_inventaris');
