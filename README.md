@@ -8,7 +8,8 @@ Repository ini merupakan proyek Tugas Kelompok ke-4 pada mata kuliah Intoduction
 
 # Documentation
 ## Database Structure
-TBD
+### ERD
+![image](https://user-images.githubusercontent.com/48386916/236127563-a82e1170-cafb-47f1-b89b-da058143f747.png)
 
 ## Sequence Diagram
 TBD
