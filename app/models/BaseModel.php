@@ -1,7 +1,7 @@
 <?php
 
 class BaseModel {
-    protected $tableName = "Pengguna";
+    protected $tableName;
     protected $db;
 
     public function __construct(){
