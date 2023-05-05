@@ -7,6 +7,7 @@ class PenggunaController extends BaseController{
         $data['title'] = 'Halaman Pengguna';
         $data['pengguna'] = $allData['results'];
         $data['columns'] = $allData['columns'];
+        
         $this->view("templates/header", $data);
         $this->view("templates/sidebar", $data);
         $this->view("/admin/pengguna", $data);
