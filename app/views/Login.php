@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>lOGIN</title>
+	<title><?= $data['title'] ?></title>
     <!--Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
@@ -27,7 +27,7 @@
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
+        <form action="<?= BASEURL; ?>/login/process" method="post">
 
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0">Sign in</p>
@@ -35,15 +35,15 @@
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
-            <label class="form-label" for="form3Example3">Email address</label>
+            <input type="text" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter Username" name="username"/>
+            <label class="form-label" for="form3Example3">Username</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />
+              placeholder="Enter password" name="password"/>
             <label class="form-label" for="form3Example4">Password</label>
           </div>
 
@@ -51,11 +51,21 @@
           <div class="text-center text-lg-start mt-4 pt-2">
             <!-- <button type="button" class="btn btn-primary btn-lg" a href="wwww.google.com"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button> -->
-              <a class="btn btn-primary btn-xl" href="HalamanPenjualan.php">Login</a>
+              <button type="submit" class="btn btn-primary btn-xl">Login</button>
           </div>
 
         </form>
+        <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <?php
+              Flasher::flash();
+            ?>
+          </div>
       </div>
+      </div>
+      
+</div>
     </div>
   </div>
   <div

@@ -1,5 +1,5 @@
 <?php 
-
+if( !session_id() ) session_start();
 require_once '../app/core/App.php';
 require_once '../app/core/BaseController.php';
 require_once '../app/models/BaseModel.php';
