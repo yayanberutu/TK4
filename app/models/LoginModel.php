@@ -7,7 +7,7 @@ class LoginModel extends BaseModel {
      */
     public function checkCredentialUser($data){
         $query = "SELECT p.IdPengguna, p.NamaPengguna as Username, p.Password, 
-                    p.NamaDepan, p.NamaBelakang, p.IdAkses, h.NamaAkses as Role 
+                    p.NamaDepan, p.NamaBelakang, p.IdAkses, h.NamaAkses as Role
                     FROM Pengguna p 
                     JOIN HakAkses h 
                     ON p.IdAkses = h.IdAkses
@@ -16,7 +16,14 @@ class LoginModel extends BaseModel {
         $this->db->bind('username', $data['username']);
         $this->db->bind('password', hash('sha256', $data['password']));
         
-        $data =  $this->db->single();
-        return $data;
+        $this->db->execute();
+        $count = $this->db->rowCount();
+        
+        if ($count > 0) {
+            $data = $this->db->single();
+            return $data;
+        } else {
+            return null;
+        }
     }
 }
