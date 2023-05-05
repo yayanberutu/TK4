@@ -57,7 +57,7 @@
                   </thead>
                   <tbody>
                   <?php $no=1; ?> 
-                    <?php foreach ($data['users'] as $row) :?>
+                    <?php foreach ($data['pengguna'] as $row) :?>
                     <tr>
                       <td><?= $no; ?></td>
                       <td><?= $row['NamaDepan'];?></td>
