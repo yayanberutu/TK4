@@ -13,6 +13,12 @@ class BaseModel {
      */
     public function getAll(){
         $this->db->query("SELECT * FROM " . $this->tableName);
-        return $this->db->resultSet();
+        $result = $this->db->resultSet();
+        
+        // Get columns list
+        $this->db->query("DESCRIBE " . $this->tableName);
+        $columns = $this->db->resultSet();
+        
+        return array('results' => $result, 'columns' => $columns);
     }
 }
