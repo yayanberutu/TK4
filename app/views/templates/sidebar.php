@@ -10,7 +10,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">@kelompok5</a>
+          <a href="#" class="d-block">User <?= $_SESSION['username']?> (User Group <?= $_SESSION['role']?>) </a>
         </div>
       </div>
 
