@@ -21,4 +21,10 @@ class BaseModel {
         
         return array('results' => $result, 'columns' => $columns);
     }
+
+    public function getById($key, $id){
+        $this->db->query('SELECT * FROM ' . $this->tableName . ' WHERE '. $key.'=:id');
+		$this->db->bind('id',$id);
+		return $this->db->single();
+    }
 }

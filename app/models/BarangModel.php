@@ -20,8 +20,8 @@ class BarangModel extends BaseModel {
     }
 
 
-    public function getById($id){
-        $this->db->query('SELECT * FROM ' . $this->tableName . ' WHERE IdBarang=:id');
+    public function getById($key, $id){
+        $this->db->query('SELECT * FROM ' . $this->tableName . ' WHERE '. $key.'=:id');
 		$this->db->bind('id',$id);
 		return $this->db->single();
     }

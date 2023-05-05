@@ -21,4 +21,20 @@ class PenggunaModel extends BaseModel {
 
 		return $this->db->rowCount();
     }
+
+    public function update($data){
+        $query = "UPDATE Pengguna SET NamaPengguna=:namaPengguna, NamaDepan=:namaDepan, NamaBelakang=:namaBelakang,
+                    NoHp=:noHp, Alamat=:alamat
+                 WHERE IdPengguna=:id";
+		$this->db->query($query);
+		$this->db->bind('id',$data['IdPengguna']);
+		$this->db->bind('namaPengguna', $data['NamaPengguna']);
+		$this->db->bind('namaDepan', $data['NamaDepan']);
+		$this->db->bind('namaBelakang', $data['NamaBelakang']);
+        $this->db->bind('noHp', $data['NoHp']);
+        $this->db->bind('alamat', $data['Alamat']);
+		$this->db->execute();
+
+		return $this->db->rowCount();
+    }
 }

@@ -53,7 +53,7 @@ class BarangController extends BaseController{
      */
     public function getByIdJsonReturn(){
         $id_barang = $_POST['id'];
-        $data = $this->model('BarangModel')->getById($id_barang);
+        $data = $this->model('BarangModel')->getById('IdBarang', $id_barang);
         
         echo json_encode($data);
     }
