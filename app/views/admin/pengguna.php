@@ -24,7 +24,8 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?= $data['title'] ?></h3> <a href="<?= BASEURL; ?>/user/tambah" class="btn float-right btn-xs btn btn-primary">Tambah User</a>
+          <h3 class="card-title"><?= $data['title'] ?></h3> 
+          <a href="#" class="btn float-right btn-xs btn btn-primary" data-toggle="modal" data-target="#tambah<?= $data['controllerName'] ?>Modal">Tambah User</a>
         </div>
         <div class="card-body">
         
@@ -56,7 +57,7 @@
                   </thead>
                   <tbody>
                   <?php $no=1; ?> 
-                    <?php foreach ($data['users'] as $row) :?>
+                    <?php foreach ($data['pengguna'] as $row) :?>
                     <tr>
                       <td><?= $no; ?></td>
                       <td><?= $row['NamaDepan'];?></td>
@@ -84,4 +85,3 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
