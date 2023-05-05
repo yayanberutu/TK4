@@ -8,11 +8,12 @@ class BarangController extends BaseController{
         $data['controllerName'] = 'barang';
         $data['barang'] = $allData['results'];
         $data['columns'] = $this->composeColumnsForModalAdd();
-
+        $data['columnsEdit'] = $this->composeColumnsForModalEdit();
         $this->view("templates/header", $data);
         $this->view("templates/sidebar", $data);
         $this->view("/admin/barang", $data);
         $this->view("templates/modalAdd", $data);
+        $this->view("templates/modalEdit", $data);
         $this->view("templates/footer");
         
     }
@@ -46,10 +47,40 @@ class BarangController extends BaseController{
         return $columns;
     }
 
-    public function getById(){
-        $id_barang = $_POST['id_barang'];
-        $data = $this->model('BukuModel')->getById($id_barang);
+    /**
+     * This method is to get request from view while editing data on modal
+     *  and return json
+     */
+    public function getByIdJsonReturn(){
+        $id_barang = $_POST['id'];
+        $data = $this->model('BarangModel')->getById($id_barang);
         
-        return $data;
+        echo json_encode($data);
     }
+
+    public function edit(){
+        if( $this->model('BarangModel')->update($_POST) > 0 ) {
+			header('location: '. BASEURL . '/barang');
+			exit;			
+		} else {
+            // header('location: '. BASEURL . '/barang');
+			// exit;		
+        }
+    }
+
+    public function composeColumnsForModalEdit(){
+        // return list of (columnName, displayName, type)
+        // ex: 'userName', 'User Name', 'text'
+        //     'password', 'Password', 'password' 
+        // define the columns to be displayed in the modal
+        $columns = array(
+            array('columnName' => 'NamaBarang', 'displayName' => 'Nama Barang', 'type' => 'text'),
+            array('columnName' => 'Keterangan', 'displayName' => 'Keterangan', 'type' => 'textarea'),
+            array('columnName' => 'Satuan', 'displayName' => 'Satuan', 'type' => 'text')
+        );
+
+        // return the columns array
+        return $columns;
+    }
+
 }
