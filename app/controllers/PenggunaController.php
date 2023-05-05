@@ -28,10 +28,25 @@ class PenggunaController extends BaseController{
             array('columnName' => 'username', 'displayName' => 'Username', 'type' => 'text'),
             array('columnName' => 'password', 'displayName' => 'Password', 'type' => 'password'),
             array('columnName' => 'noHp', 'displayName' => 'No. Hp', 'type' => 'text'),
-            array('columnName' => 'alamat', 'displayName' => 'Alamat', 'type' => 'textarea')
+            array('columnName' => 'alamat', 'displayName' => 'Alamat', 'type' => 'textarea'),
+            array('columnName' => 'idAkses', 'displayName' => 'Id Akses', 'type' => 'text')
         );
 
         // return the columns array
         return $columns;
+    }
+
+    public function tambah(){
+        // ambil userId dari session
+        if(isset($_SESSION['userId'])) {
+            $userId = $_SESSION['userId'];
+        }
+		if( $this->model('PenggunaModel')->savePenggunaToDb($_POST, $userId) > 0 ) {
+			header('location: '. BASEURL . '/pengguna');
+			exit;			
+		} else {
+			header('location: '. BASEURL . '/pengguna');
+			exit;	
+		}
     }
 }
