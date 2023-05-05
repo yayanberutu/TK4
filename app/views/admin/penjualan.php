@@ -24,7 +24,8 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?= $data['title'] ?></h3> <a href="<?= BASEURL; ?>/user/tambah" class="btn float-right btn-xs btn btn-primary">Tambah User</a>
+          <h3 class="card-title"><?= $data['title'] ?></h3> 
+          <a href="#" class="btn float-right btn-xs btn btn-primary" data-toggle="modal" data-target="#tambah<?= $data['controllerName'] ?>Modal">Tambah Penjualan</a>
         </div>
         <div class="card-body">
         

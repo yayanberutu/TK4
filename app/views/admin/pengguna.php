@@ -25,7 +25,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title"><?= $data['title'] ?></h3> 
-          <a href="#" class="btn float-right btn-xs btn btn-primary" data-toggle="modal" data-target="#tambahUserModal">Tambah User</a>
+          <a href="#" class="btn float-right btn-xs btn btn-primary" data-toggle="modal" data-target="#tambah<?= $data['controllerName'] ?>Modal">Tambah User</a>
         </div>
         <div class="card-body">
         
@@ -85,43 +85,3 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-      <!-- Modal -->
-<div class="modal fade" id="tambahUserModal" tabindex="-1" role="dialog" aria-labelledby="tambahUserModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tambahUserModalLabel">Tambah User</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="<?= BASEURL; ?>/user/tambah" method="post">
-          <div class="form-group">
-            <label for="namaDepan">Nama Depan</label>
-            <input type="text" class="form-control" id="namaDepan" name="namaDepan" placeholder="Masukkan Nama Depan">
-          </div>
-          <div class="form-group">
-            <label for="namaBelakang">Nama Belakang</label>
-            <input type="text" class="form-control" id="namaBelakang" name="namaBelakang" placeholder="Masukkan Nama Belakang">
-          </div>
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username">
-          </div>
-          <div class="form-group">
-            <label for="noHp">No. Hp</label>
-            <input type="text" class="form-control" id="noHp" name="noHp" placeholder="Masukkan No. Hp">
-          </div>
-          <div class="form-group">
-            <label for="alamat">Alamat</label>
-            <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Simpan</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
