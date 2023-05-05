@@ -98,18 +98,18 @@
       </div>
       <form id="editForm" action="<?= BASEURL; ?>/barang/edit" method="post">
         <div class="modal-body">
-          <input type="hidden" name="id_barang" id="edit_id_barang">
+          <input type="hidden" name="IdBarang" id="edit_id_barang">
           <div class="form-group">
             <label for="edit_nama_barang">Nama Barang</label>
-            <input type="text" class="form-control" id="edit_nama_barang" name="nama_barang" required>
+            <input type="text" class="form-control" id="edit_nama_barang" name="NamaBarang" required>
           </div>
           <div class="form-group">
             <label for="edit_keterangan">Keterangan</label>
-            <textarea class="form-control" id="edit_keterangan" name="keterangan"></textarea>
+            <textarea class="form-control" id="edit_keterangan" name="Keterangan"></textarea>
           </div>
           <div class="form-group">
             <label for="edit_satuan">Satuan</label>
-            <input type="text" class="form-control" id="edit_satuan" name="satuan" required>
+            <input type="text" class="form-control" id="edit_satuan" name="Satuan" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -120,19 +120,21 @@
     </div>
   </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
   $(document).ready(function() {
     $('.edit-btn').on('click', function() {
       var id_barang = $(this).data('id');
+      
       $.ajax({
-        url: "<?= BASEURL; ?>/barang/getById",
+        url: "<?= BASEURL; ?>/barang/getByIdJsonReturn",
         method: "POST",
         data: {
           id_barang: id_barang
         },
         dataType: "json",
         success: function(data) {
+          console.log("Hai");
           $('#edit_id_barang').val(data.IdBarang);
           $('#edit_nama_barang').val(data.NamaBarang);
           $('#edit_keterangan').val(data.Keterangan);

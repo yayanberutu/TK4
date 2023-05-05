@@ -21,8 +21,20 @@ class BarangModel extends BaseModel {
 
 
     public function getById($id){
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->tableName . ' WHERE IdBarang=:id');
 		$this->db->bind('id',$id);
 		return $this->db->single();
+    }
+
+    public function update($data){
+        $query = "UPDATE BARANG SET NamaBarang=:namaBarang, Keterangan=:keterangan, Satuan=:satuan WHERE IdBarang=:id";
+		$this->db->query($query);
+		$this->db->bind('id',$data['IdBarang']);
+		$this->db->bind('namaBarang', $data['NamaBarang']);
+		$this->db->bind('keterangan', $data['Keterangan']);
+		$this->db->bind('satuan', $data['Satuan']);
+		$this->db->execute();
+
+		return $this->db->rowCount();
     }
 }

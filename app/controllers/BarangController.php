@@ -46,10 +46,22 @@ class BarangController extends BaseController{
         return $columns;
     }
 
-    public function getById(){
+    /**
+     * This method is to get request from view while editing data on modal
+     *  and return json
+     */
+    public function getByIdJsonReturn(){
         $id_barang = $_POST['id_barang'];
-        $data = $this->model('BukuModel')->getById($id_barang);
+        $data = $this->model('BarangModel')->getById($id_barang);
         
-        return $data;
+        echo json_encode($data);
     }
+
+    public function edit(){
+        if( $this->model('BarangModel')->update($_POST) > 0 ) {
+			header('location: '. BASEURL . '/barang');
+			exit;			
+		}
+    }
+
 }
