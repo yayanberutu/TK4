@@ -17,6 +17,20 @@ class BarangController extends BaseController{
         
     }
 
+    public function tambah(){
+        // ambil userId dari session
+        if(isset($_SESSION['userId'])) {
+            $userId = $_SESSION['userId'];
+        }
+		if( $this->model('BarangModel')->saveBarangToDb($_POST, $userId) > 0 ) {
+			header('location: '. BASEURL . '/barang');
+			exit;			
+		} else {
+			header('location: '. BASEURL . '/barang');
+			exit;	
+		}
+    }
+
     public function composeColumnsForModalAdd(){
         // return list of (columnName, displayName, type)
         // ex: 'userName', 'User Name', 'text'
@@ -30,5 +44,12 @@ class BarangController extends BaseController{
 
         // return the columns array
         return $columns;
+    }
+
+    public function getById(){
+        $id_barang = $_POST['id_barang'];
+        $data = $this->model('BukuModel')->getById($id_barang);
+        
+        return $data;
     }
 }
