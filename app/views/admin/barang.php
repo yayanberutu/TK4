@@ -64,7 +64,8 @@
                       <td><?= $row['Keterangan'];?></td>
                       <td><?= $row['Satuan'];?></td>
                       <td>
-                        <a href="<?= BASEURL; ?>/user/edit/<?= $row['IdBarang'] ?>" class="badge badge-info ">Edit</a> <a href="<?= BASEURL; ?>/user/hapus/<?= $row['IdPengguna'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
+                        <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdBarang'] ?>">Edit</a>
+                        <a href="<?= BASEURL; ?>/barang/hapus/<?= $row['IdPengguna'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>
@@ -84,3 +85,60 @@
   </div>
   <!-- /.content-wrapper -->
 
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Barang</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="editForm" action="<?= BASEURL; ?>/barang/edit" method="post">
+        <div class="modal-body">
+          <input type="hidden" name="id_barang" id="edit_id_barang">
+          <div class="form-group">
+            <label for="edit_nama_barang">Nama Barang</label>
+            <input type="text" class="form-control" id="edit_nama_barang" name="nama_barang" required>
+          </div>
+          <div class="form-group">
+            <label for="edit_keterangan">Keterangan</label>
+            <textarea class="form-control" id="edit_keterangan" name="keterangan"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="edit_satuan">Satuan</label>
+            <input type="text" class="form-control" id="edit_satuan" name="satuan" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.edit-btn').on('click', function() {
+      var id_barang = $(this).data('id');
+      $.ajax({
+        url: "<?= BASEURL; ?>/barang/getById",
+        method: "POST",
+        data: {
+          id_barang: id_barang
+        },
+        dataType: "json",
+        success: function(data) {
+          $('#edit_id_barang').val(data.IdBarang);
+          $('#edit_nama_barang').val(data.NamaBarang);
+          $('#edit_keterangan').val(data.Keterangan);
+          $('#edit_satuan').val(data.Satuan);
+        }
+      });
+    });
+  });
+</script>
