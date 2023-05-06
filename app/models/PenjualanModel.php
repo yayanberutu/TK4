@@ -23,4 +23,20 @@ class PenjualanModel extends BaseModel {
 
         return $result;
     }
+
+    public function savePenjualanToDb($data, $userId){
+        $query = "INSERT INTO Penjualan (TanggalPenjualan, JumlahPenjualan, HargaJual, IdBarang, IdPelanggan, IdPengguna) 
+                  VALUES(:tanggalPenjualan, :jumlahPenjualan, :hargaJual, :idBarang, :idPelanggan, :idPengguna)";
+		
+        $this->db->query($query);
+		$this->db->bind('tanggalPenjualan', $data['tanggalPenjualan']);
+        $this->db->bind('jumlahPenjualan', $data['jumlahPenjualan']);
+        $this->db->bind('hargaJual', $data['hargaJual']);
+        $this->db->bind('idBarang', $data['idBarang']);
+        $this->db->bind('idPelanggan', $data['idPelanggan']);
+        $this->db->bind('idPengguna', $userId);
+		$this->db->execute();
+
+		return $this->db->rowCount();
+    }
 }

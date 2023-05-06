@@ -26,7 +26,8 @@ class PenjualanController extends BaseController{
             array('columnName' => 'tanggalPenjualan', 'displayName' => 'Tanggal Penjualan', 'type' => 'date'),
             array('columnName' => 'jumlahPenjualan', 'displayName' => 'Jumlah Penjualan', 'type' => 'number'),
             array('columnName' => 'hargaJual', 'displayName' => 'Harga Jual', 'type' => 'number'),
-            array('columnName' => 'idBarang', 'displayName' => 'Id Barang', 'type' => 'text')
+            array('columnName' => 'idBarang', 'displayName' => 'Id Barang', 'type' => 'text'),
+            array('columnName' => 'idPelanggan', 'displayName' => 'Id Pelanggan', 'type' => 'text')
         );
 
         // return the columns array
@@ -40,6 +41,22 @@ class PenjualanController extends BaseController{
 			exit;			
 		}else{
 			Flasher::setMessage('Gagal','dihapus','danger');
+			header('location: '. BASEURL . '/penjualan');
+			exit;	
+		}
+    }
+
+    public function tambah(){
+        // ambil userId dari session
+        if(isset($_SESSION['userId'])) {
+            $userId = $_SESSION['userId'];
+        }
+		if( $this->model('PenjualanModel')->savePenjualanToDb($_POST, $userId) > 0 ) {
+            Flasher::setMessage('Berhasil','ditambah','success');
+			header('location: '. BASEURL . '/penjualan');
+			exit;			
+		} else {
+            Flasher::setMessage('Gagal','ditambah','danger');
 			header('location: '. BASEURL . '/penjualan');
 			exit;	
 		}
