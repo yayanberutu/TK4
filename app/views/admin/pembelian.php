@@ -52,6 +52,13 @@
                       <th>Jumlah Pembelian</th>
                       <th>Harga Beli</th>
                       <th>Id Barang</th>
+                      <th>Nama Barang</th>
+                      <th>Id Supplier</th>
+                      <th>Nama Supplier</th>
+                      <th>Alamat Supplier</th>
+                      <th>Kota Supplier</th>
+                      <th>No Hp Supplier</th>
+                      <th>Created By</th>
                       <th style="width: 150px">Action</th>
                     </tr>
                   </thead>
@@ -65,6 +72,13 @@
                       <td><?= $row['JumlahPembelian'];?></td>
                       <td><?= $row['HargaBeli'];?></td>
                       <td><?= $row['IdBarang'];?></td>
+                      <td><?= $row['NamaBarang'];?></td>
+                      <td><?= $row['IdSupplier'];?></td>
+                      <td><?= $row['NamaSupplier'];?></td>
+                      <td><?= $row['AlamatSupplier'];?></td>
+                      <td><?= $row['KotaSupplier'];?></td>
+                      <td><?= $row['NoHpSupplier'];?></td>
+                      <td><?= $row['CreatedBy'];?></td>
                       <td>
                       <a href="<?= BASEURL; ?>/pembelian/edit/<?= $row['IdPembelian'] ?>" class="badge badge-info ">Edit</a> 
                       <a href="<?= BASEURL; ?>/pembelian/hapus/<?= $row['IdPembelian'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>

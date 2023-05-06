@@ -46,6 +46,7 @@ class SupplierController extends BaseController {
             array('columnName' => 'NamaSupplier', 'displayName' => 'Nama Supplier', 'type' => 'text'),
             array('columnName' => 'NoHp', 'displayName' => 'No Hp', 'type' => 'text'),
             array('columnName' => 'Alamat', 'displayName' => 'Alamat', 'type' => 'textarea'),
+            array('columnName' => 'Kota', 'displayName' => 'Kota', 'type' => 'text'),
             array('columnName' => 'Provinsi', 'displayName' => 'Provinsi', 'type' => 'text')
         );
 

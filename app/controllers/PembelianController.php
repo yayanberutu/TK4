@@ -3,10 +3,10 @@
 class PembelianController extends BaseController{
 
     public function index(){
-        $allData = $this->model('PembelianModel')->getAll();
+        $allData = $this->model('PembelianModel')->getAllDataForMainView();
         $data['title'] = 'Halaman Pembelian';
         $data['controllerName'] = 'pembelian';
-        $data['pembelian'] = $allData['results'];
+        $data['pembelian'] = $allData;
         $data['columns'] = $this->composeColumnsForModalAdd();
 
         $this->view("templates/header", $data);
@@ -25,7 +25,8 @@ class PembelianController extends BaseController{
             array('columnName' => 'tanggalPembelian', 'displayName' => 'Tanggal Pembelian', 'type' => 'date'),
             array('columnName' => 'jumlahPembelian', 'displayName' => 'Jumlah Pembelian', 'type' => 'number'),
             array('columnName' => 'hargaBeli', 'displayName' => 'Harga Beli', 'type' => 'number'),
-            array('columnName' => 'idBarang', 'displayName' => 'Id Barang', 'type' => 'text')
+            array('columnName' => 'idBarang', 'displayName' => 'Id Barang', 'type' => 'text'),
+            array('columnName' => 'idSupplier', 'displayName' => 'Id Supplier', 'type' => 'text')
         );
 
         // return the columns array

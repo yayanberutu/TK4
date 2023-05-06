@@ -19,13 +19,14 @@ class SupplierModel extends BaseModel{
 
     public function update($data){
         $query = "UPDATE Supplier SET NamaSupplier=:namaSupplier,
-                    NoHp=:noHp, Alamat=:alamat, Provinsi=:provinsi
+                    NoHp=:noHp, Alamat=:alamat, Kota=:kota,Provinsi=:provinsi
                  WHERE IdSupplier=:id";
 		$this->db->query($query);
 		$this->db->bind('id',$data['IdSupplier']);
 		$this->db->bind('namaSupplier', $data['NamaSupplier']);
         $this->db->bind('noHp', $data['NoHp']);
         $this->db->bind('alamat', $data['Alamat']);
+        $this->db->bind('kota', $data['Kota']);
         $this->db->bind('provinsi', $data['Provinsi']);
 		$this->db->execute();
 

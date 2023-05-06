@@ -50,6 +50,7 @@
                       <th>Nama Supplier</th>
                       <th>No Hp</th>
                       <th>Alamat</th>
+                      <th>Kota</th>
                       <th>Provinsi</th>
                       <th style="width: 150px">Action</th>
                     </tr>
@@ -62,6 +63,7 @@
                       <td><?= $row['NamaSupplier'];?></td>
                       <td><?= $row['NoHp'];?></td>
                       <td><?= $row['Alamat'];?></td>
+                      <td><?= $row['Kota'];?></td>
                       <td><?= $row['Provinsi'];?></td>
                       <td>
                         <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdSupplier'] ?>">Edit</a>
