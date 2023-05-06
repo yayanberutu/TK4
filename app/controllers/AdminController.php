@@ -21,5 +21,5 @@ class AdminController extends BaseController{
         $result = $this->model('AdminModel')->getAllDataKeuntunganPenjualanView();
         echo json_encode($result);
     }
-    
+
 }
