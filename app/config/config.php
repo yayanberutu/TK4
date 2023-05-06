@@ -3,7 +3,7 @@
  * File ini merupakan file tempat mendefenisikan config config yang diperlukan
  */
 
-define('BASEURL', 'http://localhost:8080/yayanberutu/TK4/public');
+define('BASEURL', 'http://localhost:8080/gita/TK4/public');
 
 /**
  * Config dibawah merupakan config database lokal.
