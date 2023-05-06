@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Halaman Pelanggan</h1>
+            <h1>Halaman Supplier</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -36,7 +36,7 @@
         <input type="text" class="form-control" placeholder="" name="key" >
     <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-          <a class="btn btn-outline-danger" href="<?= BASEURL; ?>/pelanggan" >Reset</a>
+          <a class="btn btn-outline-danger" href="<?= BASEURL; ?>/supplier" >Reset</a>
     </div>
   </div>
 
@@ -47,23 +47,25 @@
                   <thead>                  
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Nama Pelanggan</th>
+                      <th>Nama Supplier</th>
                       <th>No Hp</th>
                       <th>Alamat</th>
+                      <th>Provinsi</th>
                       <th style="width: 150px">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php $no=1; ?> 
-                    <?php foreach ($data['pelanggan'] as $row) :?>
+                    <?php foreach ($data['supplier'] as $row) :?>
                     <tr>
                       <td><?= $no; ?></td>
-                      <td><?= $row['NamaPelanggan'];?></td>
+                      <td><?= $row['NamaSupplier'];?></td>
                       <td><?= $row['NoHp'];?></td>
                       <td><?= $row['Alamat'];?></td>
+                      <td><?= $row['Provinsi'];?></td>
                       <td>
-                        <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdPelanggan'] ?>">Edit</a>
-                        <a href="<?= BASEURL; ?>/pelanggan/hapus/<?= $row['IdPelanggan'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
+                        <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdSupplier'] ?>">Edit</a>
+                        <a href="<?= BASEURL; ?>/supplier/hapus/<?= $row['IdSupplier'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>
