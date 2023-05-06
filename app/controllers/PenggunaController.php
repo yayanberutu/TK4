@@ -61,9 +61,11 @@ class PenggunaController extends BaseController{
             $userId = $_SESSION['userId'];
         }
 		if( $this->model('PenggunaModel')->savePenggunaToDb($_POST, $userId) > 0 ) {
+            Flasher::setMessage('Berhasil','ditambah','success');
 			header('location: '. BASEURL . '/pengguna');
 			exit;			
 		} else {
+            Flasher::setMessage('Gagal','ditambah','danger');
 			header('location: '. BASEURL . '/pengguna');
 			exit;	
 		}
