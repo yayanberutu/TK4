@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Penjualan (
     IdPelanggan INT NOT NULL,
     FOREIGN KEY (IdPengguna) REFERENCES Pengguna(IdPengguna),
     FOREIGN KEY (IdBarang) REFERENCES Barang(IdBarang),
-    FOREIGN KEY (IdPelanggan) REFERENCES Barang(IdPelanggan)
+    FOREIGN KEY (IdPelanggan) REFERENCES Pelanggan(IdPelanggan)
 );
 
 CREATE TABLE IF NOT EXISTS Supplier (
