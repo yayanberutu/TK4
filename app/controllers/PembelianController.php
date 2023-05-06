@@ -44,4 +44,20 @@ class PembelianController extends BaseController{
 			exit;	
 		}
     }
+
+    public function tambah(){
+        // ambil userId dari session
+        if(isset($_SESSION['userId'])) {
+            $userId = $_SESSION['userId'];
+        }
+		if( $this->model('PembelianModel')->savePembelianToDb($_POST, $userId) > 0 ) {
+            Flasher::setMessage('Berhasil','ditambah','success');
+			header('location: '. BASEURL . '/pembelian');
+			exit;			
+		} else {
+            Flasher::setMessage('Gagal','ditambah','danger');
+			header('location: '. BASEURL . '/pembelian');
+			exit;	
+		}
+    }
 }

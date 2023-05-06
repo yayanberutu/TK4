@@ -25,4 +25,20 @@ class PembelianModel extends BaseModel {
 
         return $result;
     }
+
+    public function savePembelianToDb($data, $userId){
+        $query = "INSERT INTO Pembelian (TanggalPembelian, JumlahPembelian, HargaBeli, IdBarang, IdSupplier, IdPengguna) 
+                  VALUES(:tanggalPembelian, :jumlahPembelian, :hargaBeli, :idBarang, :idSupplier, :idPengguna)";
+		
+        $this->db->query($query);
+		$this->db->bind('tanggalPembelian', $data['tanggalPembelian']);
+        $this->db->bind('jumlahPembelian', $data['jumlahPembelian']);
+        $this->db->bind('hargaBeli', $data['hargaBeli']);
+        $this->db->bind('idBarang', $data['idBarang']);
+        $this->db->bind('idSupplier', $data['idSupplier']);
+        $this->db->bind('idPengguna', $userId);
+		$this->db->execute();
+
+		return $this->db->rowCount();
+    }
 }
