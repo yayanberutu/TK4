@@ -17,7 +17,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Hello</h3>
+          <h3 class="card-title">Keuntungan & Kerugian</h3>
         </div>
         <div class="card-body">
           
@@ -56,6 +56,8 @@
 
 
         </div>
+
+
         <!-- /.card-body -->
         <div class="card-footer">
           Footer
@@ -78,34 +80,46 @@
 <script>
 // Panggil fungsi untuk mengambil data penjualan/keuntungan
 $.ajax({
-  url: "<?= BASEURL; ?>/<?= $data['controllerName'] ?>/getDataKeuntungan",
-  type: 'POST',
-  success: function(result) {
-    // Parse result to a JavaScript object
-    var dataObj = JSON.parse(result);
+      url: "<?= BASEURL; ?>/<?= $data['controllerName'] ?>/getDataKeuntungan",
+      type: 'POST',
+      success: function(result) {
+        // Parse result to a JavaScript object
+        var dataObj = JSON.parse(result);
 
-    // Olah data hasil query
-    var labels = [];
-    var data = [];
-    dataObj.forEach(function(row) {
+        // Olah data hasil query
+        var labels = [];
+        var data = [];
+
+        dataObj.forEach(function(row) {
       labels.push(row.TanggalPenjualan);
       data.push(row.Keuntungan);
     });
 
+    // Filter data untuk 1 minggu terakhir
+    var labelsBaru = labels.slice(-7);
+    var dataBaru = data.slice(-7);
+
+    // Inisialisasi chart
     var ctx = document.getElementById('line-chart').getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: labels,
+        labels: labelsBaru,
         datasets: [{
-          data: data,
+          data: dataBaru,
           fill: false,
-          borderColor: 'rgb(75, 192, 192)',
+          borderColor: 'rgb(255, 0, 0)',
           tension: 0.1
         }]
       },
       options: {
         scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Tanggal Pembelian'
+            }
+          },
           y: {
             beginAtZero: true
           }
@@ -113,6 +127,6 @@ $.ajax({
       }
     });
   }
-});
-
+}
+);
 </script>
