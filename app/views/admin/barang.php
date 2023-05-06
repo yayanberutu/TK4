@@ -65,7 +65,7 @@
                       <td><?= $row['Satuan'];?></td>
                       <td>
                         <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdBarang'] ?>">Edit</a>
-                        <a href="<?= BASEURL; ?>/barang/hapus/<?= $row['IdPengguna'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
+                        <a href="<?= BASEURL; ?>/barang/hapus/<?= $row['IdBarang'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>

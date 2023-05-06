@@ -89,4 +89,16 @@ class PenggunaController extends BaseController{
 			// exit;		
         }
     }
+
+    public function hapus($id){
+        if( $this->model('PenggunaModel')->delete('IdPengguna',$id) > 0 ) {
+			Flasher::setMessage('Berhasil','dihapus','success');
+			header('location: '. BASEURL . '/pengguna');
+			exit;			
+		}else{
+			Flasher::setMessage('Gagal','dihapus','danger');
+			header('location: '. BASEURL . '/pengguna');
+			exit;	
+		}
+    }
 }

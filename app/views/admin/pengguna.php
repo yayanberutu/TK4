@@ -66,8 +66,8 @@
                       <td><?= $row['NoHp'];?></td>
                       <td><?= $row['Alamat'];?></td>
                       <td>
-                      <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdPengguna'] ?>">Edit</a>
-                        <a href="<?= BASEURL; ?>/user/hapus/<?= $row['IdPengguna'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
+                        <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdPengguna'] ?>">Edit</a>
+                        <a href="<?= BASEURL; ?>/pengguna/hapus/<?= $row['IdPengguna'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>

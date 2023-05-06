@@ -66,7 +66,8 @@
                       <td><?= $row['HargaBeli'];?></td>
                       <td><?= $row['IdBarang'];?></td>
                       <td>
-                      <a href="<?= BASEURL; ?>/pembelian/edit/<?= $row['IdPembelian'] ?>" class="badge badge-info ">Edit</a> <a href="<?= BASEURL; ?>/user/hapus/<?= $row['IdPengguna'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
+                      <a href="<?= BASEURL; ?>/pembelian/edit/<?= $row['IdPembelian'] ?>" class="badge badge-info ">Edit</a> 
+                      <a href="<?= BASEURL; ?>/pembelian/hapus/<?= $row['IdPembelian'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>

@@ -32,4 +32,16 @@ class PenjualanController extends BaseController{
         // return the columns array
         return $columns;
     }
+
+    public function hapus($id){
+        if( $this->model('PenjualanModel')->delete('IdPenjualan',$id) > 0 ) {
+			Flasher::setMessage('Berhasil','dihapus','success');
+			header('location: '. BASEURL . '/penjualan');
+			exit;			
+		}else{
+			Flasher::setMessage('Gagal','dihapus','danger');
+			header('location: '. BASEURL . '/penjualan');
+			exit;	
+		}
+    }
 }

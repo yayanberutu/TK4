@@ -31,4 +31,16 @@ class PembelianController extends BaseController{
         // return the columns array
         return $columns;
     }
+
+    public function hapus($id){
+        if( $this->model('PembelianModel')->delete('IdPembelian',$id) > 0 ) {
+			Flasher::setMessage('Berhasil','dihapus','success');
+			header('location: '. BASEURL . '/pembelian');
+			exit;			
+		}else{
+			Flasher::setMessage('Gagal','dihapus','danger');
+			header('location: '. BASEURL . '/pembelian');
+			exit;	
+		}
+    }
 }

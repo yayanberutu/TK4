@@ -83,4 +83,15 @@ class BarangController extends BaseController{
         return $columns;
     }
 
+    public function hapus($id){
+        if( $this->model('BarangModel')->delete('IdBarang',$id) > 0 ) {
+			Flasher::setMessage('Berhasil','dihapus','success');
+			header('location: '. BASEURL . '/barang');
+			exit;			
+		}else{
+			Flasher::setMessage('Gagal','dihapus','danger');
+			header('location: '. BASEURL . '/barang');
+			exit;	
+		}
+    }
 }

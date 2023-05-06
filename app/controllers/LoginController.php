@@ -41,7 +41,7 @@ class LoginController extends BaseController{
             
             header('location: '. BASEURL . '/admin');
         } else {
-            Flasher::setFlash('Username / Password','salah.','danger');
+            Flasher::setMessage('Username / Password','salah.','danger');
             header('location: '. BASEURL . '/login');
             exit;	
         }

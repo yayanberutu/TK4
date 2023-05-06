@@ -27,4 +27,12 @@ class BaseModel {
 		$this->db->bind('id',$id);
 		return $this->db->single();
     }
+
+    public function delete($key, $id){
+        $this->db->query('DELETE FROM ' . $this->tableName . ' WHERE '. $key. '=:id');
+		$this->db->bind('id',$id);
+		$this->db->execute();
+
+		return $this->db->rowCount();
+    }
 }
