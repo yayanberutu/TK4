@@ -80,7 +80,7 @@
                       <td><?= $row['NoHpSupplier'];?></td>
                       <td><?= $row['CreatedBy'];?></td>
                       <td>
-                      <a href="<?= BASEURL; ?>/pembelian/edit/<?= $row['IdPembelian'] ?>" class="badge badge-info ">Edit</a> 
+                      <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdPembelian'] ?>">Edit</a>
                       <a href="<?= BASEURL; ?>/pembelian/hapus/<?= $row['IdPembelian'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
