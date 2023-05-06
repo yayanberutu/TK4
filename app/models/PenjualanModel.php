@@ -39,4 +39,20 @@ class PenjualanModel extends BaseModel {
 
 		return $this->db->rowCount();
     }
+
+    public function update($data){
+        $query = "UPDATE Penjualan SET TanggalPenjualan=:tanggalPenjualan, JumlahPenjualan=:jumlahPenjualan,
+                    HargaJual=:hargaJual, IdBarang=:idBarang, IdPelanggan=:idPelanggan
+                 WHERE IdPenjualan=:id";
+		$this->db->query($query);
+		$this->db->bind('id',$data['IdPenjualan']);
+		$this->db->bind('tanggalPenjualan', $data['TanggalPenjualan']);
+        $this->db->bind('jumlahPenjualan', $data['JumlahPenjualan']);
+        $this->db->bind('hargaJual', $data['HargaJual']);
+        $this->db->bind('idBarang', $data['IdBarang']);
+        $this->db->bind('idPelanggan', $data['IdPelanggan']);
+		$this->db->execute();
+
+		return $this->db->rowCount();
+    }
 }

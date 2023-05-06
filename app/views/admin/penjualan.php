@@ -80,7 +80,7 @@
                       <td><?= $row['AlamatPelanggan'];?></td>
                       <td><?= $row['NoHpPelanggan'];?></td>
                       <td>
-                        <a href="<?= BASEURL; ?>/penjualan/edit/<?= $row['IdPenjualan'] ?>" class="badge badge-info ">Edit</a> 
+                      <a href="#" class="badge badge-info edit-btn" data-toggle="modal" data-target="#editModal" data-id="<?= $row['IdPenjualan'] ?>">Edit</a>
                         <a href="<?= BASEURL; ?>/penjualan/hapus/<?= $row['IdPenjualan'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
