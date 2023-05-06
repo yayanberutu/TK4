@@ -60,6 +60,22 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?= BASEURL; ?>/pelanggan" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Pelanggan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= BASEURL; ?>/supplier" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Supplier
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Extra</li>
           <li class="nav-item">
             <a href="<?= BASEURL; ?>/About Us" class="nav-link">
