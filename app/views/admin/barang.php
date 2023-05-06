@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-sm-12">
           <?php
-            Flasher::flash();
+            Flasher::message();
           ?>
         </div>
       </div>
