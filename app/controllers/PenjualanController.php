@@ -3,10 +3,10 @@
 class PenjualanController extends BaseController{
 
     public function index(){
-        $allData = $this->model('PenjualanModel')->getAll();
+        $allData = $this->model('PenjualanModel')->getAllDataForMainView();
         $data['title'] = 'Halaman Penjualan';
         $data['controllerName'] = 'penjualan';
-        $data['penjualan'] = $allData['results'];
+        $data['penjualan'] = $allData;
         $data['columns'] = $this->composeColumnsForModalAdd();
 
         $this->view("templates/header", $data);

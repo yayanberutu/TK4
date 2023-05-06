@@ -52,7 +52,13 @@
                       <th>Jumlah Penjualan</th>
                       <th>Harga Jual</th>
                       <th>Id Barang</th>
+                      <th>Nama Barang</th>
+                      <th>Satuan</th>
+                      <th>Keterangan</th>
                       <th>Id Pelanggan</th>
+                      <th>Nama Pelanggan</th>
+                      <th>Alamat Pelanggan</th>
+                      <th>No Hp Pelanggan</th>
                       <th style="width: 150px">Action</th>
                     </tr>
                   </thead>
@@ -66,10 +72,16 @@
                       <td><?= $row['JumlahPenjualan'];?></td>
                       <td><?= $row['HargaJual'];?></td>
                       <td><?= $row['IdBarang'];?></td>
+                      <td><?= $row['NamaBarang'];?></td>
+                      <td><?= $row['Satuan'];?></td>
+                      <td><?= $row['Keterangan'];?></td>
                       <td><?= $row['IdPelanggan'];?></td>
+                      <td><?= $row['NamaPelanggan'];?></td>
+                      <td><?= $row['AlamatPelanggan'];?></td>
+                      <td><?= $row['NoHpPelanggan'];?></td>
                       <td>
-                      <a href="<?= BASEURL; ?>/penjualan/edit/<?= $row['IdPenjualan'] ?>" class="badge badge-info ">Edit</a> 
-                      <a href="<?= BASEURL; ?>/penjualan/hapus/<?= $row['IdPenjualan'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
+                        <a href="<?= BASEURL; ?>/penjualan/edit/<?= $row['IdPenjualan'] ?>" class="badge badge-info ">Edit</a> 
+                        <a href="<?= BASEURL; ?>/penjualan/hapus/<?= $row['IdPenjualan'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
                       </td>
                     </tr>
                     <?php $no++; endforeach; ?>
