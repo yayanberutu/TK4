@@ -2,13 +2,13 @@ CREATE DATABASE IF NOT EXISTS db_inventaris;
 USE db_inventaris;
 
 CREATE TABLE IF NOT EXISTS HakAkses (
-    IdAkses INT PRIMARY KEY,
+    IdAkses INT AUTO_INCREMENT PRIMARY KEY,
     NamaAkses VARCHAR(50) NOT NULL,
     Keterangan VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Pengguna (
-    IdPengguna INT PRIMARY KEY,
+    IdPengguna INT AUTO_INCREMENT PRIMARY KEY,
     NamaPengguna VARCHAR(50) NOT NULL,
     Password VARCHAR(50) NOT NULL,
     NamaDepan VARCHAR(50) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Pengguna (
 );
 
 CREATE TABLE IF NOT EXISTS Barang (
-    IdBarang INT PRIMARY KEY,
+    IdBarang INT AUTO_INCREMENT PRIMARY KEY,
     NamaBarang VARCHAR(50) NOT NULL,
     Keterangan VARCHAR(100) NOT NULL,
     Satuan VARCHAR(10) NOT NULL,
@@ -29,29 +29,33 @@ CREATE TABLE IF NOT EXISTS Barang (
 );
 
 CREATE TABLE IF NOT EXISTS Pembelian (
-    IdPembelian INT PRIMARY KEY,
+    IdPembelian INT AUTO_INCREMENT PRIMARY KEY,
     TanggalPembelian DATE NOT NULL,
     JumlahPembelian INT NOT NULL,
     HargaBeli DECIMAL(10,2) NOT NULL,
     IdPengguna INT NOT NULL,
     IdBarang INT NOT NULL,
+    IdSupplier INT NOT NULL,
     FOREIGN KEY (IdPengguna) REFERENCES Pengguna(IdPengguna),
-    FOREIGN KEY (IdBarang) REFERENCES Barang(IdBarang)
+    FOREIGN KEY (IdBarang) REFERENCES Barang(IdBarang),
+    FOREIGN KEY (IdSupplier) REFERENCES Supplier(IdSupplier)
 );
 
 CREATE TABLE IF NOT EXISTS Penjualan (
-    IdPenjualan INT PRIMARY KEY,
+    IdPenjualan INT AUTO_INCREMENT PRIMARY KEY,
     TanggalPenjualan DATE NOT NULL,
     JumlahPenjualan INT NOT NULL,
     HargaJual DECIMAL(10,2) NOT NULL,
     IdPengguna INT NOT NULL,
     IdBarang INT NOT NULL,
+    IdPelanggan INT NOT NULL,
     FOREIGN KEY (IdPengguna) REFERENCES Pengguna(IdPengguna),
-    FOREIGN KEY (IdBarang) REFERENCES Barang(IdBarang)
+    FOREIGN KEY (IdBarang) REFERENCES Barang(IdBarang),
+    FOREIGN KEY (IdPelanggan) REFERENCES Barang(IdPelanggan)
 );
 
 CREATE TABLE IF NOT EXISTS Supplier (
-	IdSupplier INT PRIMARY KEY, 
+	IdSupplier INT AUTO_INCREMENT PRIMARY KEY, 
     NamaSupplier VARCHAR(30), 
     Alamat TEXT, Kota VARCHAR(30), 
     Provinsi VARCHAR(30), 
@@ -59,18 +63,10 @@ CREATE TABLE IF NOT EXISTS Supplier (
 );	
 
 CREATE TABLE IF NOT EXISTS Pelanggan (
-	IdPelanggan INT PRIMARY KEY, 
+	IdPelanggan INT AUTO_INCREMENT PRIMARY KEY, 
     NamaPelanggan VARCHAR(50), 
     Alamat TEXT, 
     NoHP VARCHAR(18)
 );
 
-ALTER TABLE barang MODIFY COLUMN IdBarang INT AUTO_INCREMENT;
-ALTER TABLE HakAkses MODIFY COLUMN IdAkses INT AUTO_INCREMENT;
-ALTER TABLE Pengguna MODIFY COLUMN IdPengguna INT AUTO_INCREMENT;
-ALTER TABLE Pembelian MODIFY COLUMN IdPembelian INT AUTO_INCREMENT;
-ALTER TABLE Penjualan MODIFY COLUMN IdPenjualan INT AUTO_INCREMENT;
-
-ALTER TABLE Pembelian ADD COLUMN IdSupplier INT, ADD FOREIGN KEY(IdSupplier) REFERENCES Supplier(IdSupplier);
-ALTER TABLE Penjualan ADD COLUMN IdPelanggan INT, ADD FOREIGN KEY(IdPelanggan) REFERENCES Pelanggan(IdPelanggan);
 
