@@ -56,8 +56,11 @@
 
 
         </div>
-
-
+          <div style="width: 800px;">
+            <canvas id="myChart"></canvas>
+            <canvas id="stockChart"></canvas>
+            <canvas id="terjualChart"></canvas>
+          </div>
         <!-- /.card-body -->
         <div class="card-footer">
           Footer
@@ -90,10 +93,10 @@ $.ajax({
         var labels = [];
         var data = [];
 
-        dataObj.forEach(function(row) {
-      labels.push(row.TanggalPenjualan);
-      data.push(row.Keuntungan);
-    });
+      dataObj.forEach(function(row) {
+          labels.push(row.TanggalPenjualan);
+          data.push(row.Keuntungan);
+      });
 
     // Filter data untuk 1 minggu terakhir
     var labelsBaru = labels.slice(-7);
@@ -106,6 +109,7 @@ $.ajax({
       data: {
         labels: labelsBaru,
         datasets: [{
+          label: 'Keuntungan tiap tanggal',
           data: dataBaru,
           fill: false,
           borderColor: 'rgb(255, 0, 0)',
@@ -129,4 +133,83 @@ $.ajax({
   }
 }
 );
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($data['labels']); ?>,
+            datasets: [{
+                label: 'Keuntungan',
+                data: <?php echo json_encode($data['values']); ?>,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+// Chart untuk stock
+    var ctx = document.getElementById('stockChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($data['labels']); ?>,
+            datasets: [{
+                label: 'Stock Tiap Barang',
+                data: <?php echo json_encode($data['stocks']); ?>,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Chart untuk barang Terjual
+    var ctx = document.getElementById('terjualChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($data['labels']); ?>,
+            datasets: [{
+                label: 'Jumlah Terjual Tiap Barang',
+                data: <?php echo json_encode($data['jumlahTerjual']); ?>,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
 </script>
