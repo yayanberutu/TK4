@@ -76,7 +76,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">Extra</li>
+          <!-- <li class="nav-header">Extra</li>
           <li class="nav-item">
             <a href="<?= BASEURL; ?>/About Us" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -84,7 +84,7 @@
                 About Us
               </p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
