@@ -3,7 +3,7 @@
  * File ini merupakan file tempat mendefenisikan config config yang diperlukan
  */
 
- $base_url  = 'https://' . $_SERVER['HTTP_HOST'] . PROJECT_URL . '/public';
+ $base_url  = 'https://' . $_SERVER['HTTP_HOST'] . '/public';
  define('BASEURL', $base_url);
 
 /**
