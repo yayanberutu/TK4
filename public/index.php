@@ -8,5 +8,7 @@ require_once '../app/core/Flasher.php';
 
 require_once '../app/config/config.php';
 
-$app = new App;
+// $app = new App;
 //coba push ke niagahoster
+echo "INI HALAMAN PUBLIC INDEX";
+
