@@ -6,7 +6,7 @@
 // require_once '../app/core/Database.php';
 // require_once '../app/core/Flasher.php';
 
-require_once '../app/config/config.php';
+require_once PROJECT_URL . '/app/config/config.php';
 
 // $app = new App;
 //coba push ke niagahoster
