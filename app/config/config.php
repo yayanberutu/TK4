@@ -3,7 +3,8 @@
  * File ini merupakan file tempat mendefenisikan config config yang diperlukan
  */
 
-define('BASEURL', 'http://localhost:8080/yayanberutu/TK4/public');
+ $base_url  = 'https://' . $_SERVER['HTTP_HOST'] . PROJECT_URL . '/public';
+ define('BASEURL', $base_url);
 
 /**
  * Config dibawah merupakan config database lokal.
@@ -14,4 +15,3 @@ define('DB_USER', 'u1572699_admin');
 define('DB_PASS', 'AmsAl1:7A!');
 define('DB_NAME', 'u1572699_db_inventory');
 
-echo "INI DI FILE CONFIG";
