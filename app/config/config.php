@@ -13,3 +13,5 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'u1572699_admin');
 define('DB_PASS', 'AmsAl1:7A!');
 define('DB_NAME', 'u1572699_db_inventory');
+
+echo "INI DI FILE CONFIG";
