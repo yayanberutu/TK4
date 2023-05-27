@@ -11,13 +11,13 @@ class App {
         
         // controller
         if($url != null){
-            if(file_exists('../app/controllers/' . $url[0] . 'Controller.php') ) {
+            if(file_exists(PROJECT_URL . '/app/controllers/' . $url[0] . 'Controller.php') ) {
                 $this->controller = $url[0] . "Controller";
                 unset($url[0]);
             }
         }
         
-        require_once '../app/controllers/' . $this->controller . '.php';
+        require_once PROJECT_URL . '/app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
         // method
