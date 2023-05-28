@@ -3,8 +3,10 @@
  * File ini merupakan file tempat mendefenisikan config config yang diperlukan
  */
 
- $base_url  = 'https://' . $_SERVER['HTTP_HOST'];
- define('BASEURL', $base_url);
+//  $base_url  = 'https://' . $_SERVER['HTTP_HOST'];
+//  define('BASEURL', $base_url);
+$base_url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']);
+define('BASEURL', $base_url);
 
 /**
  * Config dibawah merupakan config database lokal.
