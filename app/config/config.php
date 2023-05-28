@@ -5,7 +5,7 @@
 
 //  $base_url  = 'https://' . $_SERVER['HTTP_HOST'];
 //  define('BASEURL', $base_url);
-$base_url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']);
+$base_url = 'https://' . $_SERVER['HTTP_HOST'];
 define('BASEURL', $base_url);
 
 /**
