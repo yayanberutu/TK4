@@ -9,7 +9,7 @@ class BaseController {
         // jika user belum login, user hanya bisa mengakses halaman login dan dashboard
         if (session_status() == PHP_SESSION_NONE || !isset($_SESSION['isLogin']) || !$_SESSION['isLogin']) {
             // session belum ada atau variabel 'isLogin' belum didefinisikan di dalam session
-            header('location: '. PROJECT_URL . '/login');
+            header('location: '. BASEURL . '/login');
             exit;
         }
         
