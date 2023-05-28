@@ -11,8 +11,9 @@ class App {
 
         // controller
         if($url != null){
+            $arr[0] = ucfirst($arr[0]);
             if(file_exists(PROJECT_URL . '/app/controllers/' . $url[0] . 'Controller.php') ) {
-                $this->controller = ucfirst($arr[0]) . "Controller";
+                $this->controller = $url[0] . "Controller";
                 unset($url[0]);
             }
         }
