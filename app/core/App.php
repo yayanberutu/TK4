@@ -8,34 +8,35 @@ class App {
     public function __construct()
     {
         $url = $this->parseURL();
-
+        echo $url[0];
         // controller
         if($url != null){
             $arr[0] = ucfirst($arr[0]);
+            echo $url[0];
             if(file_exists(PROJECT_URL . '/app/controllers/' . $url[0] . 'Controller.php') ) {
                 $this->controller = $url[0] . "Controller";
                 unset($url[0]);
             }
         }
         
-        require_once PROJECT_URL . '/app/controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller;
+        // require_once PROJECT_URL . '/app/controllers/' . $this->controller . '.php';
+        // $this->controller = new $this->controller;
 
-        // method
-        if( isset($url[1]) ) {
-            if( method_exists($this->controller, $url[1]) ) {
-                $this->method = $url[1];
-                unset($url[1]);
-            }
-        }
+        // // method
+        // if( isset($url[1]) ) {
+        //     if( method_exists($this->controller, $url[1]) ) {
+        //         $this->method = $url[1];
+        //         unset($url[1]);
+        //     }
+        // }
 
-        // params
-        if( !empty($url) ) {
-            $this->params = array_values($url);
-        }
+        // // params
+        // if( !empty($url) ) {
+        //     $this->params = array_values($url);
+        // }
 
-        // jalankan controller & method, serta kirimkan params jika ada
-        call_user_func_array([$this->controller, $this->method], $this->params);
+        // // jalankan controller & method, serta kirimkan params jika ada
+        // call_user_func_array([$this->controller, $this->method], $this->params);
 
     }
 
